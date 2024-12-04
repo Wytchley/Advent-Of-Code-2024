@@ -73,3 +73,18 @@ int AOCDay1::calculateSimilarity(const std::vector<int>& firstLocationList, cons
 	return similarity;
 }
 
+void AOCDay1::printDay1Solutions(std::string filePath)
+{
+	std::cout << "\t[Day 1]\n";
+
+	std::vector<int> firstLocationList;
+	std::vector<int> secondLocationList;
+
+	readInputFile(filePath, firstLocationList, secondLocationList);
+	int diff = calculateDistanceBetweenLocationLists(firstLocationList, secondLocationList);
+	std::cout << "Q1. Distance: " << diff << "\n";
+
+	int similarity = calculateSimilarity(firstLocationList, secondLocationList);
+	std::cout << "Q2. Similarity: " << similarity << "\n";
+}
+

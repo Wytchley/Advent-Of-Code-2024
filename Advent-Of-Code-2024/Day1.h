@@ -30,4 +30,10 @@ namespace AOCDay1 {
 	/// <param name="secondLocationList">A vector representing the second list of location IDs</param>
 	/// <returns></returns>
 	int calculateSimilarity(const std::vector<int>& firstLocationList, const std::vector<int>& secondLocationList);
+
+	/// <summary>
+    /// Calls all necessary methods to calculate results for both questions in Advent of Code 2024: Day 1 and prints the output.
+    /// </summary>
+    /// <param name="filePath">The path to the file that contains day 1's input</param>
+    void printDay1Solutions(std::string filePath);
 }
