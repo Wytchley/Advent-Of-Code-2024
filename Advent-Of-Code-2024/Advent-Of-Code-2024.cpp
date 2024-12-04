@@ -20,7 +20,6 @@ void day1(std::string filePath);
 
 int main() {
 	std::cout << "-- Advent of Code 2024 --\n\n";
-	day1("C:\\Users\\Oliver Johnson\\Desktop\\AdventOfCodeInputs\\question-1-input.txt");
 }
 
 
