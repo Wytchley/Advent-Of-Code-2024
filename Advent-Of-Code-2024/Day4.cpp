@@ -3,6 +3,7 @@
 #include <vector>
 #include <string>
 #include <iostream>
+#include <map>
 
 bool AOCDay4::checkForWordAtPos(const std::vector<std::vector<char>>& wordSearch, const std::string& word, const size_t startRow, const size_t startCol, const int rowDirection, const int colDirection)
 {
@@ -23,6 +24,71 @@ bool AOCDay4::checkForWordAtPos(const std::vector<std::vector<char>>& wordSearch
 
 	// If no issues were found, then we must have found the word
 	return true;
+}
+
+// TODO: Find a way to implement this generically rather than specifically for X-MAS
+bool AOCDay4::checkForXMas(const std::vector<std::vector<char>>& wordSearch, const size_t row, const size_t col)
+{
+	if (wordSearch[row][col] != 'A') {
+		return false;
+	}
+
+	std::map<char, int> numCharOccurrencesTopLBottomRDiagonal;
+	for (int i = -1; i <= 1; ++i) {
+
+		char character = wordSearch[row + i][col + i];
+
+		// If the key doesn't already exist, create it with a value of 1
+		if (numCharOccurrencesTopLBottomRDiagonal.count(character) == 0) {
+			numCharOccurrencesTopLBottomRDiagonal[character] = 1;
+		}
+		// Otherwise, increment the number of occurrences
+		else {
+			numCharOccurrencesTopLBottomRDiagonal[character] += 1;
+		}
+	}
+
+	std::map<char, int> numCharOccurrencesTopRBottomLDiagonal;
+	for (int i = -1; i <= 1; ++i) {
+
+		char character = wordSearch[row + i][col - i];
+
+		// If the key doesn't already exist, create it with a value of 1
+		if (numCharOccurrencesTopRBottomLDiagonal.count(character) == 0) {
+			numCharOccurrencesTopRBottomLDiagonal[character] = 1;
+		}
+		// Otherwise, increment the number of occurrences
+		else {
+			numCharOccurrencesTopRBottomLDiagonal[character] += 1;
+		}
+	}
+
+	std::string xmasStr = std::string("MAS");
+
+	for (char c : xmasStr) {
+		if (numCharOccurrencesTopLBottomRDiagonal[c] != 1 || numCharOccurrencesTopRBottomLDiagonal[c] != 1) {
+			return false;
+		}
+	}
+
+	return true;
+}
+
+unsigned int AOCDay4::countNumberOfXMasOccurrences(const std::vector<std::vector<char>>& wordSearch)
+{
+	int total = 0;
+
+	// Loop through each character in the word search 
+	// (excluding character on the outermost rows and columns as we are only 
+	// checking for characters that could be the middle 'a' of 'xmas' and therefore
+	// the character must have space to the left/right/up/down for diagonals that store the 'm' and 's'
+	for (int row = 1; row < wordSearch.size() - 1; ++row) {
+		for (int col = 1; col < wordSearch[row].size() - 1; ++col) {
+			total += checkForXMas(wordSearch, row, col) ? 1 : 0;
+		}
+	}
+
+	return total;
 }
 
 unsigned int AOCDay4::countNumberOfWordOccurrences(const std::vector<std::vector<char>>& wordSearch, const std::string& word)
@@ -58,4 +124,7 @@ void AOCDay4::printDay4Solutions(const std::string& filePath)
 	unsigned int occurrences = countNumberOfWordOccurrences(wordSearch, "XMAS");
 
 	std::cout << "XMAS Occurrences: " << occurrences << "\n";
+
+	occurrences = countNumberOfXMasOccurrences(wordSearch);
+	std::cout << "X-MAS Occurrences: " << occurrences << "\n";
 }
