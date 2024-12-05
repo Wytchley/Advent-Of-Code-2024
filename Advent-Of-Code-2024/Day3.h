@@ -5,13 +5,6 @@
 namespace AOCDay3
 {
 	/// <summary>
-	/// Reads the contents of the input file for this question into a string
-	/// </summary>
-	/// <param name="filePath">The path to the file that contains day 3's input</param>
-	/// <returns>A string of containing the contents of the file at the given path</returns>
-	std::string readFileInputToStr(const std::string& filePath);
-
-	/// <summary>
 	/// Given a string, this method will filter out all "mul(x,y)" operations and return them as a vector of strings. If ignoreDoAndDontInstructions
 	/// is set to false, this method will respect all "do()" and "don't()" instructions in the string and will not include any mul operations between
 	/// after a "don't()" and before a "do()".

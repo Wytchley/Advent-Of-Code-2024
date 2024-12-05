@@ -1,24 +1,9 @@
 #include "Day3.h"
+#include "Resources.h"
 #include <regex>
 #include <iostream>
-#include <fstream>
 #include <string>
 #include <vector>
-
-std::string AOCDay3::readFileInputToStr(const std::string& filePath)
-{
-	std::string fileContent = std::string();
-
-	std::ifstream fileInput = std::ifstream(filePath);
-	std::string line;
-
-	// Read each line and append it to the file string
-	while (std::getline(fileInput, line)) {
-		fileContent += line;
-	}
-
-	return fileContent;
-}
 
 std::vector<std::string> AOCDay3::filterStringForValidMulOperations(const std::string& str, bool ignoreDoAndDontInstructions)
 {
@@ -98,7 +83,7 @@ void AOCDay3::printDay3Solutions(const std::string& filePath)
 	std::cout << "\t[Day 3]\n";
 	
 	// Read in the corrupt memory string and calculate the sum of the valid mul operations
-	std::string corruptMemoryStr = readFileInputToStr(filePath);
+	std::string corruptMemoryStr = Resources::readFileInputToStr(filePath);
 	// Ignore all any of the Do() or Don't() instructions for Part I (i.e. don't interpret them)
 	std::vector<std::string> mulOperations = filterStringForValidMulOperations(corruptMemoryStr, true);
 	unsigned long mulOperationsSum = computeMulOperationsSum(mulOperations);
