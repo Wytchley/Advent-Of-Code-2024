@@ -14,6 +14,7 @@
 
 #include "Day1.h";
 #include "Day2.h";
+#include "Day3.h";
 #include <iostream>
 #include <vector>
 
@@ -22,6 +23,7 @@ int main() {
 
     //AOCDay1::printDay1Solutions("file_path_goes_here")
     //AOCDay2::printDay2Solutions("file_path_goes_here");
+    //AOCDay3::printDay3Solutions("file_path_goes_here");
 
     std::cout << "\n\n";
 }
