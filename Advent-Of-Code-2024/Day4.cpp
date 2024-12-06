@@ -5,8 +5,7 @@
 #include <iostream>
 #include <map>
 
-bool AOCDay4::checkForWordAtPos(const std::vector<std::vector<char>>& wordSearch, const std::string& word, const size_t startRow, const size_t startCol, const int rowDirection, const int colDirection)
-{
+bool AOCDay4::checkForWordAtPos(const std::vector<std::vector<char>>& wordSearch, const std::string& word, const size_t startRow, const size_t startCol, const int rowDirection, const int colDirection) {
 	for (int i = 0; i < word.length(); ++i) {
 		int colToCheck = startCol + (colDirection * i);
 		int rowToCheck = startRow + (rowDirection * i);
@@ -27,8 +26,7 @@ bool AOCDay4::checkForWordAtPos(const std::vector<std::vector<char>>& wordSearch
 }
 
 // TODO: Find a way to implement this generically rather than specifically for X-MAS
-bool AOCDay4::checkForXMas(const std::vector<std::vector<char>>& wordSearch, const size_t row, const size_t col)
-{
+bool AOCDay4::checkForXMas(const std::vector<std::vector<char>>& wordSearch, const size_t row, const size_t col) {
 	if (wordSearch[row][col] != 'A') {
 		return false;
 	}
@@ -65,7 +63,7 @@ bool AOCDay4::checkForXMas(const std::vector<std::vector<char>>& wordSearch, con
 
 	std::string xmasStr = std::string("MAS");
 
-	for (char c : xmasStr) {
+	for (const char c : xmasStr) {
 		if (numCharOccurrencesTopLBottomRDiagonal[c] != 1 || numCharOccurrencesTopRBottomLDiagonal[c] != 1) {
 			return false;
 		}
@@ -74,8 +72,7 @@ bool AOCDay4::checkForXMas(const std::vector<std::vector<char>>& wordSearch, con
 	return true;
 }
 
-unsigned int AOCDay4::countNumberOfXMasOccurrences(const std::vector<std::vector<char>>& wordSearch)
-{
+unsigned int AOCDay4::countNumberOfXMasOccurrences(const std::vector<std::vector<char>>& wordSearch) {
 	int total = 0;
 
 	// Loop through each character in the word search 
@@ -91,8 +88,7 @@ unsigned int AOCDay4::countNumberOfXMasOccurrences(const std::vector<std::vector
 	return total;
 }
 
-unsigned int AOCDay4::countNumberOfWordOccurrences(const std::vector<std::vector<char>>& wordSearch, const std::string& word)
-{
+unsigned int AOCDay4::countNumberOfWordOccurrences(const std::vector<std::vector<char>>& wordSearch, const std::string& word) {
 	unsigned int total = 0;
 
 	// Loop through each character in the word search
@@ -118,8 +114,7 @@ unsigned int AOCDay4::countNumberOfWordOccurrences(const std::vector<std::vector
 	return total;
 }
 
-void AOCDay4::printDay4Solutions(const std::string& filePath)
-{
+void AOCDay4::printDay4Solutions(const std::string& filePath) {
 	std::vector<std::vector<char>> wordSearch = Resources::readFileInputTo2DVector(filePath);
 	unsigned int occurrences = countNumberOfWordOccurrences(wordSearch, "XMAS");
 

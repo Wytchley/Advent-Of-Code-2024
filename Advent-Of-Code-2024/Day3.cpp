@@ -5,8 +5,7 @@
 #include <string>
 #include <vector>
 
-std::vector<std::string> AOCDay3::filterStringForValidMulOperations(const std::string& str, bool ignoreDoAndDontInstructions)
-{
+std::vector<std::string> AOCDay3::filterStringForValidMulOperations(const std::string& str, bool ignoreDoAndDontInstructions) {
 	// Stores all the mul operations found in the string
 	std::vector<std::string> mulOperations;
 
@@ -45,8 +44,7 @@ std::vector<std::string> AOCDay3::filterStringForValidMulOperations(const std::s
 	return mulOperations;
 }
 
-unsigned long AOCDay3::computeMulOperationsSum(const std::vector<std::string>& mulOperations)
-{
+unsigned long AOCDay3::computeMulOperationsSum(const std::vector<std::string>& mulOperations) {
 	unsigned long total = 0;
 
 	for (const std::string mulOperation : mulOperations) {
@@ -78,8 +76,7 @@ unsigned long AOCDay3::computeMulOperationsSum(const std::vector<std::string>& m
 	return total;
 }
 
-void AOCDay3::printDay3Solutions(const std::string& filePath)
-{
+void AOCDay3::printDay3Solutions(const std::string& filePath) {
 	std::cout << "\t[Day 3]\n";
 	
 	// Read in the corrupt memory string and calculate the sum of the valid mul operations

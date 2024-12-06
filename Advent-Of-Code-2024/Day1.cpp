@@ -5,8 +5,7 @@
 #include <map>
 
 
-void AOCDay1::readInputFile(const std::string& filePath, std::vector<int>& firstLocationList, std::vector<int>& secondLocationList)
-{
+void AOCDay1::readInputFile(const std::string& filePath, std::vector<int>& firstLocationList, std::vector<int>& secondLocationList) {
 	std::ifstream locationsFile(filePath);
 	std::string num1Str;
 	std::string num2Str;
@@ -27,8 +26,7 @@ void AOCDay1::readInputFile(const std::string& filePath, std::vector<int>& first
 }
 
 
-int AOCDay1::calculateDistanceBetweenLocationLists(std::vector<int>& firstLocationList, std::vector<int>& secondLocationList)
-{
+int AOCDay1::calculateDistanceBetweenLocationLists(std::vector<int>& firstLocationList, std::vector<int>& secondLocationList) {
 	// TODO: Implement own version of merge sort for this - just for fun
 	// Sort both vectors into ascending order
 	std::sort(firstLocationList.begin(), firstLocationList.end(), [](const int& x, const int& y) { return x < y; });
@@ -73,8 +71,7 @@ int AOCDay1::calculateSimilarity(const std::vector<int>& firstLocationList, cons
 	return similarity;
 }
 
-void AOCDay1::printDay1Solutions(std::string filePath)
-{
+void AOCDay1::printDay1Solutions(std::string filePath) {
 	std::cout << "\t[Day 1]\n";
 
 	std::vector<int> firstLocationList;

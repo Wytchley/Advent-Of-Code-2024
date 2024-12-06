@@ -3,8 +3,7 @@
 #include <iostream>
 #include <sstream>
 
-std::vector<std::vector<int>> AOCDay2::readInputFile(std::string filePath)
-{
+std::vector<std::vector<int>> AOCDay2::readInputFile(std::string filePath) {
 	std::vector<std::vector<int>> reports;
 
 	std::ifstream inputFile = std::ifstream(filePath);
@@ -29,8 +28,7 @@ std::vector<std::vector<int>> AOCDay2::readInputFile(std::string filePath)
 	return reports;
 }
 
-bool AOCDay2::checkReportIsSafe(const std::vector<int>& report)
-{
+bool AOCDay2::checkReportIsSafe(const std::vector<int>& report) {
 	// If a report has 0 or 1 levels then it must be safe as it does not violate any of the conditions for being 'safe'
 	if (report.size() < 2) {
 		return true;
@@ -66,8 +64,7 @@ bool AOCDay2::checkReportIsSafe(const std::vector<int>& report)
 }
 
 // TODO: Find a neater way to implement this
-bool AOCDay2::checkReportIsSafeUsingProblemDampener(const std::vector<int>& report, size_t problemDampenerTolerance, size_t numRemoved)
-{
+bool AOCDay2::checkReportIsSafeUsingProblemDampener(const std::vector<int>& report, size_t problemDampenerTolerance, size_t numRemoved) {
 	// If the number of already removed elements is greater than the number allowed (this will be 1 for part II), then this is not a safe solutiom, return false
 	if (numRemoved > problemDampenerTolerance) {
 		return false;
@@ -117,8 +114,7 @@ bool AOCDay2::checkReportIsSafeUsingProblemDampener(const std::vector<int>& repo
 	return true;
 }
 
-std::vector<int> AOCDay2::copyVectorOmmitingElement(const std::vector<int>& originalVec, const std::vector<int>::const_iterator& elementToOmit)
-{
+std::vector<int> AOCDay2::copyVectorOmmitingElement(const std::vector<int>& originalVec, const std::vector<int>::const_iterator& elementToOmit) {
 	std::vector<int> vecCopy;
 	std::vector<int>::const_iterator copyIt;
 
@@ -132,8 +128,7 @@ std::vector<int> AOCDay2::copyVectorOmmitingElement(const std::vector<int>& orig
 	return vecCopy;
 }
 
-int AOCDay2::countSafeReports(const std::vector<std::vector<int>>& reports, size_t problemDampenerTolerance)
-{
+int AOCDay2::countSafeReports(const std::vector<std::vector<int>>& reports, size_t problemDampenerTolerance) {
 	int numberSafe = 0;
 
 	// Loop across the reports checking for safety. If the report is safe, increment numberSafe and proceed to the next report in the vector
@@ -149,8 +144,7 @@ int AOCDay2::countSafeReports(const std::vector<std::vector<int>>& reports, size
 	return numberSafe;
 }
 
-void AOCDay2::printDay2Solutions(std::string filePath)
-{
+void AOCDay2::printDay2Solutions(std::string filePath) {
 	std::cout << "\t[Day 2]\n";
 
 	std::vector<std::vector<int>> reports = readInputFile(filePath);
