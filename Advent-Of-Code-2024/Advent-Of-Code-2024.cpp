@@ -17,6 +17,7 @@
 #include "Day3.h";
 #include "Day4.h";
 #include "Day5.h";
+#include "Day6.h";
 #include <iostream>
 #include <vector>
 
@@ -27,7 +28,8 @@ int main() {
     //AOCDay2::printDay2Solutions("file_path_goes_here");
     //AOCDay3::printDay3Solutions("file_path_goes_here");
     //AOCDay4::printDay4Solutions("file_path_goes_here");
-    AOCDay5::printDay5Solutions("C:\\Users\\Oliver Johnson\\Desktop\\AdventOfCodeInputs\\day-5-input.txt");
+    //AOCDay5::printDay5Solutions("C:\\Users\\Oliver Johnson\\Desktop\\AdventOfCodeInputs\\day-5-input.txt");
+    AOCDay6::printDay6Solutions("C:\\Users\\Oliver Johnson\\Desktop\\AdventOfCodeInputs\\day-6-input.txt");
 
     std::cout << "\n\n";
 }

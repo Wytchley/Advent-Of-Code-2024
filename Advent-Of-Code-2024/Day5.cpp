@@ -75,11 +75,21 @@ bool AOCDay5::checkUpdateIsCorrect(const std::vector<int>& update, const std::ma
 	return true;
 }
 
-unsigned int AOCDay5::calculateSumOfCorrectUpdatesMiddlePages(const std::vector<std::vector<int>>& updates, const std::map<int, std::vector<int>>& rules) {
+void AOCDay5::fixUpdate(std::vector<int>& update, const std::map<int, std::vector<int>>& rules)
+{
+
+}
+
+unsigned int AOCDay5::calculateSumOfCorrectUpdatesMiddlePages(std::vector<std::vector<int>>& updates, const std::map<int, std::vector<int>>& rules, bool fixIncorrectUpdates) {
 	unsigned int total = 0;
 
-	for (const std::vector<int>& update : updates) {
+	for (std::vector<int>& update : updates) {
 		if (checkUpdateIsCorrect(update, rules)) {
+			int midIndex = (update.size() - 1) / 2;
+			total += update[midIndex];
+		}
+		else if (fixIncorrectUpdates) {
+			fixUpdate(update, rules);
 			int midIndex = (update.size() - 1) / 2;
 			total += update[midIndex];
 		}
