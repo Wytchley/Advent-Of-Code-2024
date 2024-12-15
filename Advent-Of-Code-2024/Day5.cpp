@@ -4,8 +4,9 @@
 #include <sstream>
 #include <iostream>
 #include <map>
+#include <filesystem>
 
-void AOCDay5::readInputFile(const std::string& filePath, std::map<int, std::vector<int>>& rules, std::vector<std::vector<int>>& updates) {
+void AOCDay5::readInputFile(const std::filesystem::path& filePath, std::map<int, std::vector<int>>& rules, std::vector<std::vector<int>>& updates) {
 	bool readingRules = true;
 
 	std::ifstream inputFile = std::ifstream(filePath);
@@ -85,12 +86,12 @@ unsigned int AOCDay5::calculateSumOfCorrectUpdatesMiddlePages(std::vector<std::v
 
 	for (std::vector<int>& update : updates) {
 		if (checkUpdateIsCorrect(update, rules)) {
-			int midIndex = (update.size() - 1) / 2;
+			size_t midIndex = (update.size() - 1) / 2;
 			total += update[midIndex];
 		}
 		else if (fixIncorrectUpdates) {
 			fixUpdate(update, rules);
-			int midIndex = (update.size() - 1) / 2;
+			size_t midIndex = (update.size() - 1) / 2;
 			total += update[midIndex];
 		}
 	}
@@ -98,7 +99,7 @@ unsigned int AOCDay5::calculateSumOfCorrectUpdatesMiddlePages(std::vector<std::v
 	return total;
 }
 
-void AOCDay5::printDay5Solutions(const std::string& filePath) {
+void AOCDay5::printDay5Solutions(const std::filesystem::path& filePath) {
 	std::vector<std::vector<int>> updates;
 	std::map<int, std::vector<int>> rules;
 	

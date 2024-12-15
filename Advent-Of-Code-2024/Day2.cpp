@@ -2,8 +2,9 @@
 #include <fstream>
 #include <iostream>
 #include <sstream>
+#include <filesystem>
 
-std::vector<std::vector<int>> AOCDay2::readInputFile(std::string filePath) {
+std::vector<std::vector<int>> AOCDay2::readInputFile(const std::filesystem::path& filePath) {
 	std::vector<std::vector<int>> reports;
 
 	std::ifstream inputFile = std::ifstream(filePath);
@@ -144,7 +145,7 @@ int AOCDay2::countSafeReports(const std::vector<std::vector<int>>& reports, size
 	return numberSafe;
 }
 
-void AOCDay2::printDay2Solutions(std::string filePath) {
+void AOCDay2::printDay2Solutions(const std::filesystem::path& filePath) {
 	std::cout << "\t[Day 2]\n";
 
 	std::vector<std::vector<int>> reports = readInputFile(filePath);

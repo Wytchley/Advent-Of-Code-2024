@@ -3,9 +3,9 @@
 #include <iostream>
 #include <algorithm>
 #include <map>
+#include <filesystem>
 
-
-void AOCDay1::readInputFile(const std::string& filePath, std::vector<int>& firstLocationList, std::vector<int>& secondLocationList) {
+void AOCDay1::readInputFile(const std::filesystem::path& filePath, std::vector<int>& firstLocationList, std::vector<int>& secondLocationList) {
 	std::ifstream locationsFile(filePath);
 	std::string num1Str;
 	std::string num2Str;
@@ -71,7 +71,7 @@ int AOCDay1::calculateSimilarity(const std::vector<int>& firstLocationList, cons
 	return similarity;
 }
 
-void AOCDay1::printDay1Solutions(std::string filePath) {
+void AOCDay1::printDay1Solutions(const std::filesystem::path& filePath) {
 	std::cout << "\t[Day 1]\n";
 
 	std::vector<int> firstLocationList;

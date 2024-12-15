@@ -1,6 +1,7 @@
 #pragma once
 #include <vector>
 #include <string>
+#include <filesystem>
 
 namespace AOCDay2
 {
@@ -10,7 +11,7 @@ namespace AOCDay2
 	/// </summary>
 	/// <param name="filePath">The location of the file containing the reactor reports</param>
 	/// <returns>A vector of reports</returns>
-	std::vector<std::vector<int>> readInputFile(std::string filePath);
+	std::vector<std::vector<int>> readInputFile(const std::filesystem::path& path);
 
 	/// <summary>
 	/// Checks that a given report from the Red-Nosed reactor is considered 'safe' under the following conditions:
@@ -54,6 +55,6 @@ namespace AOCDay2
 	/// Calls all necessary methods to calculate results for both questions in Advent of Code 2024: Day 2 and prints the output.
 	/// </summary>
 	/// <param name="filePath">The path to the file that contains day 2's input</param>
-	void printDay2Solutions(std::string filePath);
+	void printDay2Solutions(const std::filesystem::path& filePath);
 };
 

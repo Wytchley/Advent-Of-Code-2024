@@ -4,11 +4,12 @@
 #include <string>
 #include <iostream>
 #include <map>
+#include <filesystem>
 
 bool AOCDay4::checkForWordAtPos(const std::vector<std::vector<char>>& wordSearch, const std::string& word, const size_t startRow, const size_t startCol, const int rowDirection, const int colDirection) {
 	for (int i = 0; i < word.length(); ++i) {
-		int colToCheck = startCol + (colDirection * i);
-		int rowToCheck = startRow + (rowDirection * i);
+		size_t colToCheck = startCol + (colDirection * i);
+		size_t rowToCheck = startRow + (rowDirection * i);
 
 		// Check if the indexes to check are outside of the wordsearch bounds. If so, return false, the word cannot be found
 		if (rowToCheck > wordSearch.size() - 1 || rowToCheck < 0 || colToCheck > wordSearch[0].size() - 1 || colToCheck < 0) {
@@ -114,7 +115,7 @@ unsigned int AOCDay4::countNumberOfWordOccurrences(const std::vector<std::vector
 	return total;
 }
 
-void AOCDay4::printDay4Solutions(const std::string& filePath) {
+void AOCDay4::printDay4Solutions(const std::filesystem::path& filePath) {
 	std::vector<std::vector<char>> wordSearch = Resources::readFileInputTo2DVector(filePath);
 	unsigned int occurrences = countNumberOfWordOccurrences(wordSearch, "XMAS");
 

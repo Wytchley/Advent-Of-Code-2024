@@ -1,6 +1,7 @@
 #pragma once
 #include <string>
 #include <vector>
+#include <filesystem>
 
 /// <summary>
 /// More generic implementations of things are held in the resources namespace.
@@ -14,8 +15,8 @@ namespace Resources
 	/// </summary>
 	/// <param name="filePath">The path to the file that contains an input</param>
 	/// <returns>A string of containing the contents of the file at the given path</returns>
-	std::string readFileInputToStr(const std::string& filePath);
+	std::string readFileInputToStr(const std::filesystem::path& filePath);
 
-	std::vector<std::vector<char>> readFileInputTo2DVector(const std::string& filePath);
+	std::vector<std::vector<char>> readFileInputTo2DVector(const std::filesystem::path& filePath);
 };
 

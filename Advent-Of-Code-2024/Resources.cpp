@@ -1,8 +1,9 @@
 #include "Resources.h"
 #include <string>
 #include <fstream>
+#include <filesystem>
 
-std::string Resources::readFileInputToStr(const std::string& filePath)
+std::string Resources::readFileInputToStr(const std::filesystem::path& filePath)
 {
 	std::string fileContent = std::string();
 
@@ -17,7 +18,7 @@ std::string Resources::readFileInputToStr(const std::string& filePath)
 	return fileContent;
 }
 
-std::vector<std::vector<char>> Resources::readFileInputTo2DVector(const std::string& filePath)
+std::vector<std::vector<char>> Resources::readFileInputTo2DVector(const std::filesystem::path& filePath)
 {
 	std::vector<std::vector<char>> fileContent;
 

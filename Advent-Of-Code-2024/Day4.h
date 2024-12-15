@@ -1,6 +1,7 @@
 #pragma once
 #include <string>
 #include <vector>
+#include <filesystem>
 
 namespace AOCDay4
 {
@@ -12,6 +13,6 @@ namespace AOCDay4
 
 	unsigned int countNumberOfWordOccurrences(const std::vector<std::vector<char>>& wordSearch, const std::string& word);
 
-	void printDay4Solutions(const std::string& filePath);
+	void printDay4Solutions(const std::filesystem::path& filePath);
 };
 

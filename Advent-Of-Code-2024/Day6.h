@@ -2,6 +2,7 @@
 #include <vector>
 #include <tuple>
 #include <string>
+#include <filesystem>
 
 namespace AOCDay6
 {
@@ -17,6 +18,6 @@ namespace AOCDay6
 
 	void printMap(const std::vector<std::vector<char>>& map);
 
-	void printDay6Solutions(const std::string& filePath);
+	void printDay6Solutions(const std::filesystem::path& filePath);
 };
 

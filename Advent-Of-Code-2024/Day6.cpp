@@ -4,6 +4,7 @@
 #include <tuple>
 #include <vector>
 #include <iostream>
+#include <filesystem>
 
 size_t AOCDay6::calculateNumUniquePositions(std::vector<std::vector<char>> map, size_t rowPos, size_t colPos, int8_t rowDir, int8_t colDir) {
 
@@ -122,11 +123,11 @@ void AOCDay6::printMap(const std::vector<std::vector<char>>& map)
     std::cout << "\n";
 }
 
-void AOCDay6::printDay6Solutions(const std::string& filePath) {
+void AOCDay6::printDay6Solutions(const std::filesystem::path& filePath) {
     std::vector<std::vector<char>> map = Resources::readFileInputTo2DVector(filePath);
     std::tuple<size_t, size_t> startPos = getGuardPosition(map);
     std::tuple<int8_t, int8_t> startDir = getDirectionFromGuardChar(map[std::get<0>(startPos)][std::get<1>(startPos)]);
 
-    unsigned int numUniquePositions = calculateNumUniquePositions(map, std::get<0>(startPos), std::get<1>(startPos), std::get<0>(startDir), std::get<1>(startDir));
+    size_t numUniquePositions = calculateNumUniquePositions(map, std::get<0>(startPos), std::get<1>(startPos), std::get<0>(startDir), std::get<1>(startDir));
     std::cout << "Q1. Number of Unique Positions Visited: " << numUniquePositions << "\n";
 }

@@ -1,6 +1,7 @@
 #pragma once
 #include <string>
 #include <vector>
+#include <filesystem>
 
 namespace AOCDay1 {
 
@@ -10,7 +11,7 @@ namespace AOCDay1 {
     /// <param name="filePath">The location of the file containing the two location ID lists</param>
     /// <param name="firstLocationList">A vector to store the location IDs of the first list in</param>
     /// <param name="secondLocationList">A vector to store the location IDs of the second list in</param>
-	void readInputFile(const std::string& filePath, std::vector<int>& firstLocationList, std::vector<int>& secondLocationList);
+	void readInputFile(const std::filesystem::path& filePath, std::vector<int>& firstLocationList, std::vector<int>& secondLocationList);
 
     /// <summary>
     /// Calculates a distance between two lists of location IDs where the 'distance' is defined as the difference in value of pairings of IDs from the first and second list in order when the two lists
@@ -35,5 +36,5 @@ namespace AOCDay1 {
     /// Calls all necessary methods to calculate results for both questions in Advent of Code 2024: Day 1 and prints the output.
     /// </summary>
     /// <param name="filePath">The path to the file that contains day 1's input</param>
-    void printDay1Solutions(std::string filePath);
+    void printDay1Solutions(const std::filesystem::path& filePath);
 }

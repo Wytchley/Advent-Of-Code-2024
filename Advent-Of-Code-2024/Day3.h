@@ -1,6 +1,7 @@
 #pragma once
 #include <string>
 #include <vector>
+#include <filesystem>
 
 namespace AOCDay3
 {
@@ -27,6 +28,6 @@ namespace AOCDay3
 	/// Calls all necessary methods to calculate results for both questions in Advent of Code 2024: Day 3 and prints the output.
 	/// </summary>
 	/// <param name="filePath">The path to the file that contains day 2's input</param>
-	void printDay3Solutions(const std::string& filePath);
+	void printDay3Solutions(const std::filesystem::path& filePath);
 };
 
